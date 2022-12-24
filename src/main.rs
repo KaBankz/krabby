@@ -9,10 +9,7 @@ use serenity::model::gateway::Ready;
 use serenity::model::id::GuildId;
 use serenity::prelude::*;
 
-#[group]
-#[commands(ping)]
-struct General;
-
+use dotenv::dotenv;
 struct Handler;
 
 #[async_trait]
@@ -80,9 +77,8 @@ impl EventHandler for Handler {
 
 #[tokio::main]
 async fn main() {
-    let framework = StandardFramework::new()
-        .configure(|c| c.prefix("~")) // set the bot's prefix to "~"
-        .group(&GENERAL_GROUP);
+    dotenv().ok();
+
     // Configure the client with your Discord bot token in the environment.
     let token = env::var("DISCORD_TOKEN").expect("Expected a token in the environment");
 

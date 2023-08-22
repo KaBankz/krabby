@@ -1,4 +1,4 @@
-FROM rust:1-slim
+FROM rust:1-bookworm
 
 WORKDIR /usr/src/krabby
 

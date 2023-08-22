@@ -1,4 +1,4 @@
-FROM rust:1-alpine
+FROM rust:1-slim
 
 WORKDIR /usr/src/krabby
 
